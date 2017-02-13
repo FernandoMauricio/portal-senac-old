@@ -18,7 +18,14 @@
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "kartik-v/yii2-grid": "@dev"
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-widgets": "*",
+        "faryshta/yii2-jquery-tagsinput": "@dev",
+        "2amigos/yii2-ckeditor-widget": "^2.0",
+        "kartik-v/yii2-nav-x": "*",
+        "kartik-v/yii2-detail-view": "*",
+        "kartik-v/yii2-mpdf": "dev-master",
+        "wbraganca/yii2-dynamicform": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

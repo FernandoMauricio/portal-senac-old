@@ -287,7 +287,7 @@ if($Destinocomunicacao['dest_nomeunidadedestCopia'] > 0) {
 
                                 $model->file = UploadedFile::getInstances($model, 'file');
 
-                                $subdiretorio = "uploads/" . $model->com_codcomunicacao;
+                                $subdiretorio = "uploads/comunicacaointerna/" . $model->com_codcomunicacao;
 
                                         if(!file_exists($subdiretorio))
                                                 {

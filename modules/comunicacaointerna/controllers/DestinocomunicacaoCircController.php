@@ -227,7 +227,7 @@ if($DestinocomunicacaoEnc['dest_nomeunidadedestCopia'] > 0) {
 
                                 $model->file = UploadedFile::getInstances($model, 'file');
 
-                                $subdiretorio = "uploads/" . $model->dest_codcomunicacao . "/" . $despachos->deco_coddespacho;
+                                $subdiretorio = "uploads/comunicacaointerna/" . $model->dest_codcomunicacao . "/" . $despachos->deco_coddespacho;
 
                                                 if(!file_exists($subdiretorio))
                                                 {
@@ -412,7 +412,7 @@ if($DestinocomunicacaoEnc['dest_nomeunidadedestCopia'] > 0) {
 
                                 $model->file = UploadedFile::getInstances($model, 'file');
 
-                                $subdiretorio = "uploads/" . $model->dest_codcomunicacao . "/" . $despachos->deco_coddespacho;
+                                $subdiretorio = "uploads/comunicacaointerna/" . $model->dest_codcomunicacao . "/" . $despachos->deco_coddespacho;
 
                                                 if(!file_exists($subdiretorio))
                                                 {

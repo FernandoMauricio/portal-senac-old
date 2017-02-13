@@ -4,6 +4,8 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'language'=>'pt-BR',
+    'timeZone' => 'America/Manaus',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
@@ -37,8 +39,10 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db'      => require(__DIR__ . '/db.php'),
         'db_base' => require(__DIR__ . '/db_base.php'),
+        'db_apl'  => require(__DIR__ . '/db_apl.php'),
+        'db_rep'  => require(__DIR__ . '/db_rep.php'),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -53,6 +57,21 @@ $config = [
             'comunicacaointerna' => [
                 'class' => 'app\modules\comunicacaointerna\Comunicacaointerna',
             ],
+            'aux_planejamento' => [
+            'class' => 'app\modules\aux_planejamento\Aux_planejamento',
+            ],
+
+                'gridview' =>  [
+                'class' => '\kartik\grid\Module'
+                               ],
+                'dynagrid'=> [
+                        'class'=>'\kartik\dynagrid\Module',
+                        // other module settings
+                    ],
+                'markdown' => [
+                'class' => 'kartik\markdown\Module',
+                            ],
+                            
         ],
     
     'params' => $params,
