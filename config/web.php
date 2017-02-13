@@ -39,10 +39,11 @@ $config = [
                 ],
             ],
         ],
-        'db'      => require(__DIR__ . '/db.php'),
-        'db_base' => require(__DIR__ . '/db_base.php'),
-        'db_apl'  => require(__DIR__ . '/db_apl.php'),
-        'db_rep'  => require(__DIR__ . '/db_rep.php'),
+        'db'                   => require(__DIR__ . '/db.php'),
+        'db_base'              => require(__DIR__ . '/db_base.php'),
+        'db_apl'               => require(__DIR__ . '/db_apl.php'),
+        'db_rep'               => require(__DIR__ . '/db_rep.php'),
+        'db_manut_transporte'  => require(__DIR__ . '/db_manut_transporte.php'),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -57,8 +58,13 @@ $config = [
             'comunicacaointerna' => [
                 'class' => 'app\modules\comunicacaointerna\Comunicacaointerna',
             ],
+
             'aux_planejamento' => [
             'class' => 'app\modules\aux_planejamento\Aux_planejamento',
+            ],
+
+            'manut_transporte' => [
+            'class' => 'app\modules\manut_transporte\Manut_transporte',
             ],
 
                 'gridview' =>  [

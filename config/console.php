@@ -20,7 +20,11 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'db'                  => $db,
+        'db_base'             => $db_base,
+        'db_apl'              => $db_apl,
+        'db_rep'              => $db_rep,
+        'db_manut_transporte' => $db_manut_transporte,
     ],
     'params' => $params,
     /*

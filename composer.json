@@ -27,7 +27,8 @@
         "wbraganca/yii2-dynamicform": "dev-master",
         "faryshta/yii2-jquery-tagsinput": "@dev",
         "2amigos/yii2-ckeditor-widget": "^2.0",
-        "phpoffice/phpexcel": "^1.8"
+        "phpoffice/phpexcel": "^1.8",
+        "kartik-v/yii2-export": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
