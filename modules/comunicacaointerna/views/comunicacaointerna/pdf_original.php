@@ -2,7 +2,7 @@
 
 <table width="100%" border="1" cellspacing="0" bordercolor="#000000">
   <tr> 
-    <td width="16%" rowspan="2" valign="middle"> <div align="center"><img src="../views/comunicacaointerna/pdf/logo.jpg" width="100" height="65"></div></td>
+    <td width="10%" rowspan="2" valign="middle"> <div align="center"><img src="../modules/comunicacaointerna/views/comunicacaointerna/pdf/logo.jpg" width="100" height="65"></div></td>
     <td width="54%" height="37" valign="middle">
 <div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"> FORMULÁRIO DE DESPACHO</font></strong></div></td>
     <td width="30%"><div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong> CÓDIGO: 5365/2015</strong></font></div></td>

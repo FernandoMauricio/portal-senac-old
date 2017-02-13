@@ -41,15 +41,15 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => 'index.php'],
-                    ['label' => 'Criadas pelo Setor', 'url' => ['/comunicacaointerna/index']],
-                    ['label' => 'Recebidas pelo Setor', 'url' => ['/destinocomunicacao-receb/index']],
+                    ['label' => 'Home', 'url' => ['site/index']],
+                    ['label' => 'Criadas pelo Setor', 'url' => ['/comunicacaointerna/comunicacaointerna/index']],
+                    ['label' => 'Recebidas pelo Setor', 'url' => ['/comunicacaointerna/destinocomunicacao-receb/index']],
                     
                     ['label' => 'Despachos/Autorizações',
                 'items' => [
                  '<li class="dropdown-header">Área Gerencial</li>',
-                 ['label' => 'Despachos Pendentes', 'url' => ['/destinocomunicacao-circ/index']],
-                 ['label' => 'Autorizações Pendentes', 'url' => ['/comunicacaointerna-aut/index']],
+                 ['label' => 'Despachos Pendentes', 'url' => ['/comunicacaointerna/destinocomunicacao-circ/index']],
+                 ['label' => 'Autorizações Pendentes', 'url' => ['/comunicacaointerna/comunicacaointerna-aut/index']],
                            ],
         ],
                 
@@ -57,8 +57,8 @@ AppAsset::register($this);
                     ['label' => 'Usuário (' . ucwords(strtolower($session['sess_nomeusuario'])) . ')',
                 'items' => [
                  '<li class="dropdown-header">Área Usuário</li>',
-                    ['label' => 'Alterar Senha', 'url' => ['usuario-usu/update', 'id' => $sess_codusuario]],
-                    ['label' => 'Versões Anteriores', 'url' => ['/site/versao']],
+                    ['label' => 'Alterar Senha', 'url' => ['/comunicacaointerna/usuario-usu/update', 'id' => $sess_codusuario]],
+                    ['label' => 'Versões Anteriores', 'url' => ['/comunicacaointerna/site/versao']],
                     ['label' => 'Sair', 'url' => 'http://portalsenac.am.senac.br/portal_senac/control_base_vermodulos/control_base_vermodulos.php'],
                     
                            ],
@@ -69,14 +69,14 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                    ['label' => 'Home', 'url' => 'index.php'],
+                    ['label' => 'Home', 'url' => ['site/index']],
                     ['label' => 'Criadas pelo Setor', 'url' => ['/comunicacaointerna/comunicacaointerna/index']],
-                    ['label' => 'Recebidas pelo Setor', 'url' => ['/destinocomunicacao-receb/index']],
+                    ['label' => 'Recebidas pelo Setor', 'url' => ['/comunicacaointerna/destinocomunicacao-receb/index']],
                     ['label' => 'Usuário (' . ucwords(strtolower($session['sess_nomeusuario'])) . ')',
                 'items' => [
                  '<li class="dropdown-header">Área Usuário</li>',
-                    ['label' => 'Alterar Senha', 'url' => ['usuario-usu/update', 'id' => $sess_codusuario]],
-                    ['label' => 'Versões Anteriores', 'url' => ['/site/versao']],
+                    ['label' => 'Alterar Senha', 'url' => ['/comunicacaointerna/usuario-usu/update', 'id' => $sess_codusuario]],
+                    ['label' => 'Versões Anteriores', 'url' => ['/comunicacaointerna/site/versao']],
                     ['label' => 'Sair', 'url' => 'http://portalsenac.am.senac.br/portal_senac/control_base_vermodulos/control_base_vermodulos.php'],
                     
                            ],

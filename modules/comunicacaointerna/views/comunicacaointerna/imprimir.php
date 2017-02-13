@@ -136,7 +136,7 @@ $situacao_comunicacao  = $nome_situacao["sitco_situacao1"];
 <body>
 <table width="100%" border="1">
   <tr>
-    <td width="18%" rowspan="2"><img src="../views/comunicacaointerna/pdf/logo.jpg" width="115" height="70" /></td>
+    <td width="18%" rowspan="2"><img src="../modules/comunicacaointerna/views/comunicacaointerna/pdf/logo.jpg" width="115" height="70" /></td>
     <td width="58%" height="43"><div align="center" style="font-size: 12px; "><strong> FORMULÁRIO DE DESPACHO</strong></div></td>
     <td width="24%"><div align="center"  style="font-size: 12px;"><strong>CÓDIGO: <?php echo $com_codcomunicacao ?></strong></div></td>
   </tr>

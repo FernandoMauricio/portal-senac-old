@@ -114,7 +114,7 @@ th{ text-align: center;} .assinatura{font-size: 10px;} p{ margin: 0px 10px 10px;
 
 <table width="100%" border="1">
   <tr>
-    <td width="16%" rowspan="2"><img src="../views/comunicacaointerna/pdf/logo.jpg" width="180" height="75" /></td> <!-- width="115" height="70" -->
+    <td width="10%" rowspan="2"><img src="../modules/comunicacaointerna/views/comunicacaointerna/pdf/logo.jpg" width="115" height="70" /></td> <!-- width="115" height="70" -->
     <td width="58%" height="43"><div align="center"><strong> FORMULÁRIO DE DESPACHO</strong></div></td>
     <td width="24%"><div align="center"><strong>CÓDIGO: <?php echo $com_codcomunicacao ?></strong></div></td>
   </tr>
@@ -151,7 +151,7 @@ th{ text-align: center;} .assinatura{font-size: 10px;} p{ margin: 0px 10px 10px;
       if($com_codsituacao != 'Em Elaboração'){
     
 //GET ANEXOS
-    $files=\yii\helpers\FileHelper::findFiles('uploads/'. $com_codcomunicacao,['recursive'=>FALSE]);
+    $files=\yii\helpers\FileHelper::findFiles('uploads/comunicacaointerna/'. $com_codcomunicacao,['recursive'=>FALSE]);
     if (isset($files[0])) {
         foreach ($files as $index => $file) {
             $nameFicheiro = substr($file, strrpos($file, '/') + 1);
@@ -159,7 +159,7 @@ th{ text-align: center;} .assinatura{font-size: 10px;} p{ margin: 0px 10px 10px;
   {
     echo '***************** Arquivos Confidenciais';
   }else{
-            echo Html::a($nameFicheiro, Url::base().'/uploads/'. $com_codcomunicacao. '/' . $nameFicheiro, ['target'=>'_blank']). "<br/>"; // render do ficheiro no browser
+            echo Html::a($nameFicheiro, Url::base().'/uploads/comunicacaointerna/'. $com_codcomunicacao. '/' . $nameFicheiro, ['target'=>'_blank']). "<br/>"; // render do ficheiro no browser
        }
     }
   }
@@ -277,7 +277,7 @@ th{ text-align: center;} .assinatura{font-size: 10px;} p{ margin: 0px 10px 10px;
         $dest_coddespacho = $destinos["dest_coddespacho"];
 //GET ANEXOS
       if($deco_coddespacho == $dest_coddespacho){
-    $files=\yii\helpers\FileHelper::findFiles('uploads/'. $com_codcomunicacao . '/' . $deco_coddespacho);
+    $files=\yii\helpers\FileHelper::findFiles('uploads/comunicacaointerna/'. $com_codcomunicacao . '/' . $deco_coddespacho);
     if (isset($files[0])) {
         foreach ($files as $index => $file) {
             $nameFicheiro = substr($file, strrpos($file, '/') + 1);
@@ -285,7 +285,7 @@ th{ text-align: center;} .assinatura{font-size: 10px;} p{ margin: 0px 10px 10px;
   {
     echo '***************** Arquivos Confidenciais';
   }else{
-            echo Html::a($nameFicheiro, Url::base().'/uploads/'. $com_codcomunicacao. "/" . $deco_coddespacho . "/" . $nameFicheiro, ['target'=>'_blank']) . "<br/>" ; // render do ficheiro no browser
+            echo Html::a($nameFicheiro, Url::base().'/uploads/comunicacaointerna/'. $com_codcomunicacao. "/" . $deco_coddespacho . "/" . $nameFicheiro, ['target'=>'_blank']) . "<br/>" ; // render do ficheiro no browser
           }
       } 
    }
