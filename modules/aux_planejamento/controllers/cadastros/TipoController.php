@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\aux_planejamento\controllers;
+namespace app\modules\aux_planejamento\controllers\cadastros;
 
 use Yii;
 use app\modules\aux_planejamento\models\cadastros\Tipo;
