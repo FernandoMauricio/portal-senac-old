@@ -25,6 +25,9 @@ $config = [
         'db_apl'              => $db_apl,
         'db_rep'              => $db_rep,
         'db_manut_transporte' => $db_manut_transporte,
+        'senachttp'           => $senachttp,
+        'db_psg'              => $db_psg,
+        'db_vestibular'       => $db_vestibular,
     ],
     'params' => $params,
     /*

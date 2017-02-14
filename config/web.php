@@ -44,6 +44,9 @@ $config = [
         'db_apl'               => require(__DIR__ . '/db_apl.php'),
         'db_rep'               => require(__DIR__ . '/db_rep.php'),
         'db_manut_transporte'  => require(__DIR__ . '/db_manut_transporte.php'),
+        'senachttp'            => require(__DIR__ . '/senachttp.php'),
+        'db_psg'               => require(__DIR__ . '/db_psg.php'),
+        'db_vestibular'        => require(__DIR__ . '/db_vestibular.php'),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -65,6 +68,10 @@ $config = [
 
             'manut_transporte' => [
             'class' => 'app\modules\manut_transporte\Manut_transporte',
+            ],
+
+            'siteadmin' => [
+            'class' => 'app\modules\siteadmin\Siteadmin',
             ],
 
                 'gridview' =>  [
