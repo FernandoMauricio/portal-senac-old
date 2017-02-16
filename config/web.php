@@ -47,6 +47,7 @@ $config = [
         'senachttp'            => require(__DIR__ . '/senachttp.php'),
         'db_psg'               => require(__DIR__ . '/db_psg.php'),
         'db_vestibular'        => require(__DIR__ . '/db_vestibular.php'),
+        'db_processos'         => require(__DIR__ . '/db_processos.php'),
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -72,6 +73,10 @@ $config = [
 
             'siteadmin' => [
             'class' => 'app\modules\siteadmin\Siteadmin',
+            ],
+
+            'contratacao' => [
+            'class' => 'app\modules\contratacao\Contratacao',
             ],
 
                 'gridview' =>  [
