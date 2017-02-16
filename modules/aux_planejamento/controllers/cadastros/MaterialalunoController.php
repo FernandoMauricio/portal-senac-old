@@ -63,7 +63,7 @@ class MaterialalunoController extends Controller
     //----------------* Verificar se será viável essa função, uma vez que os itens sem saldo estarão zerados
     public function actionImportExcelMaterialAluno()
     {
-        $inputFile = 'uploads/imports/materalaluno.xlsx';
+        $inputFile = 'uploads/aux_planejamento/imports/materalaluno.xlsx';
         try{
             $inputFileType = \PHPExcel_IOFactory::identify($inputFile);
             $objReader = \PHPExcel_IOFactory::createReader($inputFileType);

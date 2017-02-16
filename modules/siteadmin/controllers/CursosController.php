@@ -107,8 +107,8 @@ if($codunidade == 47){
             $model->file = UploadedFile::getInstance($model, 'file');
             if (!is_null($model->file)) {
 
-                $model->file->saveAs('uploads/cursos/'.$model->file);
-                $model->nome = 'uploads/cursos/'.$model->file;
+                $model->file->saveAs('uploads/siteadmin/cursos/'.$model->file);
+                $model->nome = 'uploads/siteadmin/cursos/'.$model->file;
                 $model->save();
             
             }   

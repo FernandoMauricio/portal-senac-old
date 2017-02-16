@@ -62,7 +62,7 @@ class MaterialconsumoController extends Controller
 
     public function actionImportExcelMaterialConsumo()
     {
-        $inputFile = 'uploads/imports/materalconsumo.xlsx';
+        $inputFile = 'uploads/aux_planejamento/imports/materalconsumo.xlsx';
         try{
             $inputFileType = \PHPExcel_IOFactory::identify($inputFile);
             $objReader = \PHPExcel_IOFactory::createReader($inputFileType);

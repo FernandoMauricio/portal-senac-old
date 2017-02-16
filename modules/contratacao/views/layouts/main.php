@@ -59,7 +59,7 @@ echo NavX::widget([
             ['label' => 'Processos Seletivos', 'items' => [
             '<li class="dropdown-header">Administração do site</li>',
                 ['label' => 'Processos Seletivos', 'url' => ['/contratacao/processo-seletivo/index']],
-                ['label' => 'Listagem de Candidatos', 'url' => ['/curriculos-admin/index']],
+                ['label' => 'Listagem de Candidatos', 'url' => ['/contratacao/curriculos-admin/index']],
             ]],
 
 

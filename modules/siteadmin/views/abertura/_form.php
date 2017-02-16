@@ -37,7 +37,7 @@ echo '<div class="alert alert-' . $key . '">' . $message . '</div>';
         'showRemove'=> false,
         'showUpload'=> false,
         // 'initialPreview'=>[
-        //     Html::img("../web/uploads/psg/pdf.png", ['class'=>'file-preview-image', 'alt'=>'', 'title'=>'']),
+        //     Html::img("../web/uploads/siteadmin/psg/pdf.png", ['class'=>'file-preview-image', 'alt'=>'', 'title'=>'']),
         //     ],
 
         'initialCaption'=>$model->arquivo,

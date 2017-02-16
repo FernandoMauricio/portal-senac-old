@@ -100,10 +100,10 @@ class RepositorioMateriaisController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
                        if (!is_null($model->file)) {
                            //criação da pasta que constará o arquivo 
-                          mkdir(Yii::$app->basePath . '/web/uploads/repositorio/' . $model->rep_codrepositorio);
+                          mkdir(Yii::$app->basePath . '/web/uploads/aux_planejamento/repositorio/' . $model->rep_codrepositorio);
                           $model->rep_arquivo = $model->file->baseName . '.' . $model->file->extension;
                           //salva o arquivo no caminho da criação da pasta
-                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/repositorio/' . $model->rep_codrepositorio .'/';
+                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/aux_planejamento/repositorio/' . $model->rep_codrepositorio .'/';
                           $path = Yii::$app->params['uploadPath'] . $model->file;
                            $model->file->saveAs($path);
                         }
@@ -116,7 +116,7 @@ class RepositorioMateriaisController extends Controller
                           $model->rep_image_web_filename = Yii::$app->security->generateRandomString().".{$ext}";
                           // the path to save file, you can set an uploadPath
                           // in Yii::$app->params (as used in example below)                       
-                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/repositorio/capas/';
+                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/aux_planejamento/repositorio/capas/';
                           $path = Yii::$app->params['uploadPath'] . $model->rep_image_web_filename;
                            $image->saveAs($path);
                         }
@@ -163,7 +163,7 @@ class RepositorioMateriaisController extends Controller
                        if (!is_null($model->file)) {
                           $model->rep_arquivo = $model->file->baseName . '.' . $model->file->extension;
                           //salva o arquivo no caminho da criação da pasta
-                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/repositorio/' . $model->rep_codrepositorio .'/';
+                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/aux_planejamento/repositorio/' . $model->rep_codrepositorio .'/';
                           $path = Yii::$app->params['uploadPath'] . $model->file;
                            $model->file->saveAs($path);
                         }
@@ -176,7 +176,7 @@ class RepositorioMateriaisController extends Controller
                           $model->rep_image_web_filename = Yii::$app->security->generateRandomString().".{$ext}";
                           // the path to save file, you can set an uploadPath
                           // in Yii::$app->params (as used in example below)                       
-                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/repositorio/capas/';
+                          Yii::$app->params['uploadPath'] = Yii::$app->basePath . '/web/uploads/aux_planejamento/repositorio/capas/';
                           $path = Yii::$app->params['uploadPath'] . $model->rep_image_web_filename;
                            $image->saveAs($path);
                         }

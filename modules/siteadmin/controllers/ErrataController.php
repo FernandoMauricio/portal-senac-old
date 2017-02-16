@@ -105,11 +105,11 @@ class ErrataController extends Controller
 
 
             if ($model->file && $model->validate()) {  
-            $model->arquivoErrata = 'uploads/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->arquivoErrata = 'uploads/siteadmin/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
 
             if($model->save()){
-            $model->file->saveAs('uploads/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension);
+            $model->file->saveAs('uploads/siteadmin/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension);
                 
                 Yii::$app->session->setFlash('success', 'Errata inserida com sucesso! ');
             }
@@ -156,14 +156,14 @@ class ErrataController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file && $model->validate()) 
             {  
-                $model->arquivoErrata = 'uploads/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->arquivoErrata = 'uploads/siteadmin/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension;
                 $model->save();
 
                 if($model->save())
                 {
                     if (!empty($_POST)) 
                     {
-                          $model->file->saveAs('uploads/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension);
+                          $model->file->saveAs('uploads/siteadmin/psg/erratas/' . $model->file->baseName . '.' . $model->file->extension);
                     }   
                                  
 

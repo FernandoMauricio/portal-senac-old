@@ -146,14 +146,14 @@ if($codunidade == 47){
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file && $model->validate()) 
             {  
-                $model->arquivo = 'uploads/anexos/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->arquivo = 'uploads/siteadmin/anexos/' . $model->file->baseName . '.' . $model->file->extension;
                 $model->save();
 
                 if($model->save())
                 {
                     if (!empty($_POST)) 
                     {
-                          $model->file->saveAs('uploads/anexos/' . $model->file->baseName . '.' . $model->file->extension);
+                          $model->file->saveAs('uploads/siteadmin/anexos/' . $model->file->baseName . '.' . $model->file->extension);
                     }   
                                  
 

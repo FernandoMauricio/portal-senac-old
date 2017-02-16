@@ -53,7 +53,7 @@ $id = $model->id;
 
    ?>
           <?php echo "<div class='row'>";?>
-          <?php echo '<a href="../web/uploads/psg/classificados/'.$arquivoLista.'" target="_blank">';?>
+          <?php echo '<a href="../web/uploads/siteadmin/psg/classificados/'.$arquivoLista.'" target="_blank">';?>
           <?php echo "<button type='button' class='btn btn-link'></button>"?><?php echo $arquivoLista; ?>
           <?php echo "</div></a>";
 
@@ -78,7 +78,7 @@ $id = $model->id;
 
    ?>
           <?php echo "<div class='row'>";?>
-          <?php echo '<a href="../web/uploads/psg/erratas/'.$arquivoErrata.'" target="_blank">';?>
+          <?php echo '<a href="../web/uploads/siteadmin/psg/erratas/'.$arquivoErrata.'" target="_blank">';?>
           <?php echo "<button type='button' class='btn btn-link'></button>"?><?php echo $arquivoErrata; ?>
           <?php echo "</div></a>";
 
@@ -103,7 +103,7 @@ $id = $model->id;
 
    ?>
           <?php echo "<div class='row'>";?>
-          <?php echo '<a href="../web/uploads/psg/comunicados/'.$arquivoComunicado.'" target="_blank">';?>
+          <?php echo '<a href="../web/uploads/siteadmin/psg/comunicados/'.$arquivoComunicado.'" target="_blank">';?>
           <?php echo "<button type='button' class='btn btn-link'></button>"?><?php echo $arquivoComunicado; ?>
           <?php echo "</div></a>";
 

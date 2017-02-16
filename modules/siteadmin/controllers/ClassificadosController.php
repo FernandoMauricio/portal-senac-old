@@ -105,11 +105,11 @@ class ClassificadosController extends Controller
 
 
             if ($model->file && $model->validate()) {  
-            $model->arquivoLista = 'uploads/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->arquivoLista = 'uploads/siteadmin/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
 
             if($model->save()){
-            $model->file->saveAs('uploads/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension);
+            $model->file->saveAs('uploads/siteadmin/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension);
                 
                 Yii::$app->session->setFlash('success', 'Lista de Classificados inserida com sucesso! ');
             }
@@ -158,14 +158,14 @@ class ClassificadosController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file && $model->validate()) 
             {  
-                $model->arquivoLista = 'uploads/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->arquivoLista = 'uploads/siteadmin/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension;
                 $model->save();
 
                 if($model->save())
                 {
                     if (!empty($_POST)) 
                     {
-                          $model->file->saveAs('uploads/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension);
+                          $model->file->saveAs('uploads/siteadmin/psg/classificados/' . $model->file->baseName . '.' . $model->file->extension);
                     }   
                                  
 

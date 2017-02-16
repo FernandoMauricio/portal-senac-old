@@ -106,11 +106,11 @@ if($codunidade == 47){
 
 
             if ($model->file && $model->validate()) {  
-            $model->arquivoLista = 'uploads/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->arquivoLista = 'uploads/siteadmin/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
 
             if($model->save()){
-            $model->file->saveAs('uploads/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension);
+            $model->file->saveAs('uploads/siteadmin/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension);
                 
                 Yii::$app->session->setFlash('success', 'Lista de Aprovados inserida com sucesso! ');
             }
@@ -159,14 +159,14 @@ if($codunidade == 47){
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file && $model->validate()) 
             {  
-                $model->arquivoLista = 'uploads/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->arquivoLista = 'uploads/siteadmin/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension;
                 $model->save();
 
                 if($model->save())
                 {
                     if (!empty($_POST)) 
                     {
-                          $model->file->saveAs('uploads/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension);
+                          $model->file->saveAs('uploads/siteadmin/vestibular/aprovados/' . $model->file->baseName . '.' . $model->file->extension);
                     }   
                                  
 

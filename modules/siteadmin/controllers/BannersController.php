@@ -115,8 +115,8 @@ if($codunidade == 47){
                  return $this->redirect(['update', 'id' => $model->id]);
             }
 
-            $model->file->saveAs('uploads/banners/' . $model->file->baseName . '.' . $model->file->extension);
-            $model->nome = 'uploads/banners/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->file->saveAs('uploads/siteadmin/banners/' . $model->file->baseName . '.' . $model->file->extension);
+            $model->nome = 'uploads/siteadmin/banners/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
 
             if($model->save()){

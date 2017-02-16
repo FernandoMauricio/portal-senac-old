@@ -107,11 +107,11 @@ class AberturaController extends Controller
 
 
             if ($model->file && $model->validate()) {  
-            $model->arquivo = 'uploads/psg/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->arquivo = 'uploads/siteadmin/psg/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
 
             if($model->save()){
-            $model->file->saveAs('uploads/psg/' . $model->file->baseName . '.' . $model->file->extension);
+            $model->file->saveAs('uploads/siteadmin/psg/' . $model->file->baseName . '.' . $model->file->extension);
                 
                 Yii::$app->session->setFlash('success', 'Abertura de Vagas criada com sucesso! ');
             }
@@ -161,14 +161,14 @@ Yii::$app->session->setFlash('success', 'Abertura de Vagas atualizada com sucess
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file && $model->validate()) 
             {  
-                $model->arquivo = 'uploads/psg/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->arquivo = 'uploads/siteadmin/psg/' . $model->file->baseName . '.' . $model->file->extension;
                 $model->save();
 
                 if($model->save())
                 {
                     if (!empty($_POST)) 
                     {
-                          $model->file->saveAs('uploads/psg/' . $model->file->baseName . '.' . $model->file->extension);
+                          $model->file->saveAs('uploads/siteadmin/psg/' . $model->file->baseName . '.' . $model->file->extension);
                     }   
                                 
                 }

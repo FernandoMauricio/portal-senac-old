@@ -120,11 +120,11 @@ if($codunidade == 47){
 
 
             if ($model->file && $model->validate()) {  
-            $model->arquivoInfo = 'uploads/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension;
+            $model->arquivoInfo = 'uploads/siteadmin/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension;
             $model->save();
 
             if($model->save()){
-            $model->file->saveAs('uploads/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension);
+            $model->file->saveAs('uploads/siteadmin/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension);
                 
                 Yii::$app->session->setFlash('success', 'Informação inserida com sucesso! ');
             }
@@ -173,14 +173,14 @@ if($codunidade == 47){
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->file && $model->validate()) 
             {  
-                $model->arquivoInfo = 'uploads/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension;
+                $model->arquivoInfo = 'uploads/siteadmin/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension;
                 $model->save();
 
                 if($model->save())
                 {
                     if (!empty($_POST)) 
                     {
-                          $model->file->saveAs('uploads/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension);
+                          $model->file->saveAs('uploads/siteadmin/vestibular/informacoes/' . $model->file->baseName . '.' . $model->file->extension);
                     }   
                                  
 
