@@ -6,8 +6,8 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\modules\aux_planejamento\models\LoginForm;
-use app\modules\aux_planejamento\models\ContactForm;
+use app\models\LoginForm;
+use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -47,11 +47,6 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionVersao()
-    {
-        return $this->render('versao');
-    }
-    
     public function actionIndex()
     {
         return $this->render('index');

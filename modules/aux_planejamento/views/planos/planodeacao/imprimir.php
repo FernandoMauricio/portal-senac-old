@@ -28,7 +28,7 @@ $id = $model->plan_codplano;
     <tr>
         <td colspan="4"><strong>Título: </strong><?php echo $model->plan_descricao; ?></td>
         <td colspan="3" ><strong>CH: </strong><?php echo $model->plan_cargahoraria; ?></td> 
-        <td colspan="3"><strong>Situação: </strong> <?php echo $model->plan_status ? '<span class="label label-success">Liberado</span>' : '<span class="label label-danger">Em elaboração</span>' ?></td>
+        <td colspan="3"><strong>Situação: </strong> <?php echo $model->plan_status ? '<span class="label label-success">Ativo</span>' : '<span class="label label-danger">Inativo</span>' ?></td>
         <td colspan="2"><strong>Novo Modelo Pedagógico: </strong> <?php echo $model->plan_modelonacional ? '<span class="label label-success">Sim</span>' : '<span class="label label-danger">Não</span>' ?></td>
     </tr> 
 <tbody>

@@ -19,7 +19,7 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
 <div class="planodeacao-form">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
 
                         <?= $form->field($model, 'plan_descricao')->textInput(['maxlength' => true]) ?>
 
@@ -31,9 +31,9 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
 
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
 
-                        <?= $form->field($model, 'plan_status')->radioList([1 => 'Liberado', 0 => 'Em elaboração']) ?>
+                        <?= $form->field($model, 'plan_status')->radioList([1 => 'Ativo', 0 => 'Inativo']) ?>
 
                         </div>
 
@@ -49,17 +49,13 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
                         <div class="col-md-3">
                             <?php
                                 $nivelList=ArrayHelper::map(app\modules\aux_planejamento\models\cadastros\Nivel::find()->all(), 'niv_codnivel', 'niv_descricao' ); 
-                            if ($model->isNewRecord) {
-                                       echo  $form->field($model, 'plan_codnivel')->widget(Select2::classname(), [
+                                        echo $form->field($model, 'plan_codnivel')->widget(Select2::classname(), [
                                                 'data' =>  $nivelList,
                                                 'options' => ['placeholder' => 'Selecione o Nivel...'],
                                                 'pluginOptions' => [
                                                         'allowClear' => true
                                                     ],
                                                 ]);
-                           }else{
-                                     echo $form->field($model, 'nivelLabel')->textInput(['value' => $model->nivel->niv_descricao, 'readonly' => true]);
-                                }
                             ?>
 
                         </div>
@@ -67,7 +63,6 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
                         <div class="col-md-3">
                             <?php
                                 $EixoList=ArrayHelper::map(app\modules\aux_planejamento\models\cadastros\Eixo::find()->all(), 'eix_codeixo', 'eix_descricao' ); 
-                                if ($model->isNewRecord) {
                                             echo $form->field($model, 'plan_codeixo')->widget(Select2::classname(), [
                                                     'data' =>  $EixoList,
                                                     'options' => ['id' => 'eixo-id','placeholder' => 'Selecione o Eixo...'],
@@ -75,15 +70,11 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
                                                             'allowClear' => true
                                                         ],
                                                     ]);
-                            }else{
-                                     echo $form->field($model, 'eixoLabel')->textInput(['value' => $model->eixo->eix_descricao, 'readonly' => true]);
-                                }
                             ?>
                         </div>
 
                         <div class="col-md-3">
                             <?php
-                            if ($model->isNewRecord) {
                                 // Child # 1
                                 echo $form->field($model, 'plan_codsegmento')->widget(DepDrop::classname(), [
                                     'type'=>DepDrop::TYPE_SELECT2,
@@ -96,15 +87,11 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
                                         'url'=>Url::to(['/aux_planejamento/planos/planodeacao/segmento'])
                                     ]
                                 ]);
-                            }else{
-                                     echo $form->field($model, 'segmentoLabel')->textInput(['value' => $model->segmento->seg_descricao, 'readonly' => true]);
-                                }
                             ?>
                         </div>
 
                         <div class="col-md-3">
                             <?php
-                            if ($model->isNewRecord) {
                                 // Child # 2
                                 echo $form->field($model, 'plan_codtipoa')->widget(DepDrop::classname(), [
                                     'type'=>DepDrop::TYPE_SELECT2,
@@ -115,9 +102,6 @@ use app\modules\aux_planejamento\models\cadastros\Segmento;
                                         'url'=>Url::to(['/aux_planejamento/planos/planodeacao/tipos'])
                                     ]
                                 ]);
-                            }else{
-                                     echo $form->field($model, 'tipoLabel')->textInput(['value' => $model->tipo->tip_descricao, 'readonly' => true]);
-                                }
                             ?>
                         </div>
 

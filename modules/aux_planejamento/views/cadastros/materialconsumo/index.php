@@ -29,9 +29,10 @@ echo '<div class="alert alert-'.$key.'">'.$message.'</div>';
         <?= Html::a('Novo Material de Consumo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-<!--      <p>
+<!--     <p>
         <?= Html::a('Importar Cadastros - MXM', ['/cadastros/materialconsumo/import-excel-material-consumo'], ['class' => 'btn btn-primary']) ?>
-    </p> -->
+    </p>
+ -->
 
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -44,16 +45,8 @@ echo '<div class="alert alert-'.$key.'">'.$message.'</div>';
             'matcon_valor',
             [
                 'attribute' => 'matcon_codcolaborador',
-                'value' => function ($data) {
-                                                if($data->matcon_codcolaborador == 9999)
-                                                {
-                                                    return 'Importado pelo MXM';
-                                                }else{
-                                                    return $data->colaborador->usuario->usu_nomeusuario;
-                                                }
-                                            },
+                'value' => 'colaborador.usuario.usu_nomeusuario',
             ],
-
             'matcon_data',
             [
                 'class'=>'kartik\grid\BooleanColumn',

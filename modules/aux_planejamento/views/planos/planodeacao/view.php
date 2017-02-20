@@ -87,7 +87,7 @@ $attributes = [
                             'attribute'=>'plan_status', 
                             'format'=>'raw',
                             'type'=>DetailView::INPUT_SWITCH,
-                            'value'=>$model->plan_status ? '<span class="label label-success">Liberado</span>' : '<span class="label label-danger">Em elaboração</span>',
+                            'value'=>$model->plan_status ? '<span class="label label-success">Ativo</span>' : '<span class="label label-danger">Inativo</span>',
                             'valueColOptions'=>['style'=>'width:0%']
                         ],
 
@@ -286,7 +286,7 @@ echo DetailView::widget([
         <td><?php echo $plama_editora ?></td>
         <td><?php echo $plama_tipoplano ?></td>
         <td><?php echo $plama_observacao ?></td>
-        <td><a target="_blank" href="http://portalsenac.am.senac.br/aux_planejamento/web/uploads/aux_planejamento/repositorio/<?php echo $plama_codrepositorio .'/'. $plama_arquivo ?>"> <?php echo $plama_arquivo ?></a></td>
+        <td><a target="_blank" href="http://portalsenac.am.senac.br/aux_planejamento/web/uploads/repositorio/<?php echo $plama_codrepositorio .'/'. $plama_arquivo ?>"> <?php echo $plama_arquivo ?></a></td>
       </tr>
         <?php
           }
@@ -309,7 +309,6 @@ echo DetailView::widget([
         <th>Valor Unitário</th>
         <th>Quantidade</th>
         <th>Unidade</th>
-        <th>Valores Atualizados Em</th>
       </tr>
     </thead>
     <tbody>
@@ -323,7 +322,6 @@ echo DetailView::widget([
                 $planmatcon_valor      = $modelPlanoConsumo["planmatcon_valor"];
                 $planmatcon_tipo       = $modelPlanoConsumo["planmatcon_tipo"];
                 $planmatcon_quantidade = $modelPlanoConsumo["planmatcon_quantidade"];
-                $planmatcon_data       = $modelPlanoConsumo["planmatcon_data"];
                 $valorTotal           += $modelPlanoConsumo["planmatcon_valor"]; //somatório de todos os valores dos itens
         ?>
         <tr>
@@ -332,7 +330,6 @@ echo DetailView::widget([
         <td><?php echo 'R$ ' . number_format($planmatcon_valor, 2, ',', '.') ?></td>
         <td><?php echo $planmatcon_quantidade ?></td>
         <td><?php echo $planmatcon_tipo ?></td>
-        <td><?php echo date('d/m/Y', strtotime($planmatcon_data)) != '31/12/1969' ? date('d/m/Y', strtotime($planmatcon_data)) : '-' ?></td>
 
       </tr>
         <?php
