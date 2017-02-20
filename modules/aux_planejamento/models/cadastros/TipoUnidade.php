@@ -25,6 +25,14 @@ class TipoUnidade extends \yii\db\ActiveRecord
      */
     public static function getDb()
     {
+        return Yii::$app->get('db_base');
+    }
+    
+    /**
+     * @return \yii\db\Connection the database connection used by this AR class.
+     */
+    public static function getDb()
+    {
         return Yii::$app->get('db_apl');
     }
 
