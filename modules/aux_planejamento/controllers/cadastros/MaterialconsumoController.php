@@ -62,7 +62,7 @@ class MaterialconsumoController extends Controller
 
     public function actionImportExcelMaterialConsumo()
     {
-        $inputFile = 'uploads/aux_planejamento/imports/materalconsumo.xlsx';
+        $inputFile = 'uploads/aux_planejamento/imports/materialconsumo.xlsx';
         try{
             $inputFileType = \PHPExcel_IOFactory::identify($inputFile);
             $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
@@ -93,20 +93,58 @@ class MaterialconsumoController extends Controller
             // $model->matcon_status = $rowData[0][4];
             // $model->save();
             if(!empty($rowData[0][0])){
-                $data[] = [$rowData[0][0],$rowData[0][1],$rowData[0][2],$rowData[0][3],$rowData[0][4]];
+                $data[] = [$rowData[0][0],$rowData[0][1],$rowData[0][2],$rowData[0][3],1,9999,date('Y-m-d')]; // 1 = Ativos | 9999 = Id Exportação
             }
         }
 
-        //apaga a tabela completa para preparar a importação
+        //apaga a tabela (TEMPORÁRIA) completa para preparar a importação
         Yii::$app->db->createCommand()->checkIntegrity(false)->execute();
-        Yii::$app->db->createCommand()->truncateTable('db_apl2.materialconsumo_matcon')->execute();
+        Yii::$app->db->createCommand()->truncateTable('db_apl2.materialconsumo_matcon_import')->execute();
         //--------insere em massa os materiais de consumo exportados do MXM
         Yii::$app->db->createCommand()
-            ->batchInsert('db_apl2.materialconsumo_matcon', ['matcon_codMXM','matcon_descricao', 'matcon_tipo', 'matcon_valor', 'matcon_status'], $data)
+            ->batchInsert('db_apl2.materialconsumo_matcon_import', ['matcon_codMXM','matcon_descricao', 'matcon_tipo', 'matcon_valor', 'matcon_status', 'matcon_codcolaborador', 'matcon_data'], $data)
             ->execute();
         
+        //-------Insere novos itens cadastrados no MXM com valores maiores que 0 na tabela principal
+        Yii::$app->db_apl->createCommand('
+            INSERT INTO `materialconsumo_matcon`(`matcon_codMXM`, `matcon_descricao`, `matcon_tipo`, `matcon_valor`, `matcon_status`, `matcon_codcolaborador`, `matcon_data`)
+            SELECT
+              `materialconsumo_matcon_import`.`matcon_codMXM`,
+              `materialconsumo_matcon_import`.`matcon_descricao`,
+              `materialconsumo_matcon_import`.`matcon_tipo`,
+              `materialconsumo_matcon_import`.`matcon_valor`,
+              `materialconsumo_matcon_import`.`matcon_status`,
+              `materialconsumo_matcon_import`.`matcon_codcolaborador`,
+              `materialconsumo_matcon_import`.`matcon_data`
+            FROM
+              `materialconsumo_matcon_import`
+            WHERE
+              `materialconsumo_matcon_import`.`matcon_valor` > 0 AND `matcon_codMXM` NOT IN(
+              SELECT
+                `materialconsumo_matcon`.`matcon_codMXM`
+              FROM
+                `materialconsumo_matcon`
+              WHERE
+                `materialconsumo_matcon`.`matcon_codMXM` IS NOT NULL
+            )')
+        ->execute();
+
+        //-------Atualiza os valores de itens maiores que 0 na tabela principal
+        Yii::$app->db_apl->createCommand('
+            UPDATE
+              `materialconsumo_matcon`,
+              `materialconsumo_matcon_import`
+            SET
+              `materialconsumo_matcon`.`matcon_descricao` = `materialconsumo_matcon_import`.`matcon_descricao`,
+              `materialconsumo_matcon`.`matcon_valor` = `materialconsumo_matcon_import`.`matcon_valor`,
+              `materialconsumo_matcon`.`matcon_codcolaborador` = `materialconsumo_matcon_import`.`matcon_codcolaborador`,
+              `materialconsumo_matcon`.`matcon_data` = `materialconsumo_matcon_import`.`matcon_data`
+            WHERE
+              `materialconsumo_matcon`.`matcon_codMXM` = `materialconsumo_matcon_import`.`matcon_codMXM` AND `materialconsumo_matcon_import`.`matcon_valor` > 0')
+        ->execute();
+
         //-------atualiza os planos já criados com os valores de materiais de consumo atuais
-        Yii::$app->db_apl->createCommand('UPDATE `plano_materialconsumo`, `materialconsumo_matcon` SET `planmatcon_valor` = `matcon_valor` WHERE `planmatcon_codMXM` = `matcon_codMXM`')
+        Yii::$app->db_apl->createCommand('UPDATE `plano_materialconsumo`, `materialconsumo_matcon` SET `planmatcon_codMXM` = `matcon_codMXM` , `planmatcon_descricao` = `matcon_descricao`, `planmatcon_valor` = `matcon_valor`, `planmatcon_tipo` = `matcon_tipo`, `planmatcon_data` = `matcon_data` WHERE `planmatcon_codMXM` = `matcon_codMXM`')
             ->execute();
 
         Yii::$app->session->setFlash('success', '<strong>SUCESSO! </strong> Material de Consumo importado!</strong>');
@@ -164,7 +202,7 @@ class MaterialconsumoController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
         //-------atualiza os planos já criados com os valores de materiais de consumo atuais
-        Yii::$app->db_apl->createCommand('UPDATE `plano_materialconsumo`, `materialconsumo_matcon` SET `planmatcon_valor` = '.$model->matcon_valor.' WHERE `materialconsumo_cod` = '.$model->matcon_id.'')
+        Yii::$app->db_apl->createCommand('UPDATE `plano_materialconsumo`, `materialconsumo_matcon` SET `planmatcon_valor` = '.$model->matcon_valor.', `planmatcon_data` = "'.$model->matcon_data.'" WHERE `materialconsumo_cod` = '.$model->matcon_id.'')
             ->execute();
 
             Yii::$app->session->setFlash('success', '<strong>SUCESSO! </strong> Material de Consumo Atualizado!</strong>');

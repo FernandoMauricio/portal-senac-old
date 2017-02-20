@@ -37,7 +37,7 @@ use yii\helpers\Html;
                 <td><?= $modelPlaniMaterial->planima_editora ?></td>
                 <td><?= $modelPlaniMaterial->planima_tipoplano ?></td>
                 <td><?= $modelPlaniMaterial->planima_observacao ?></td>
-                <td><a target="_blank" href="http://localhost/aux_planejamento/web/uploads/repositorio/<?php echo $modelPlaniMaterial->planima_arquivo ?>"> <?php echo $modelPlaniMaterial->planima_arquivo ?></a></td>
+                <td><a target="_blank" href="http://localhost/aux_planejamento/web/uploads/aux_planejamento/repositorio/<?php echo $modelPlaniMaterial->planima_arquivo ?>"> <?php echo $modelPlaniMaterial->planima_arquivo ?></a></td>
             </tr>
             <?php
               $valorTotal += $modelPlaniMaterial->planima_valor;
